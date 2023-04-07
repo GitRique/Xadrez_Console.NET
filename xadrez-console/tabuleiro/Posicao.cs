@@ -9,8 +9,7 @@
             this.coluna = coluna;
         }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return linha
                 + ","
                 + coluna;
