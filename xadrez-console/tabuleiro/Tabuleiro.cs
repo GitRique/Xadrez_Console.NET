@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace tabuleiro {
@@ -8,7 +9,7 @@ namespace tabuleiro {
         public int colunas { get; set; }
         private Peca[,] pecas;
 
-        public Tabuleiro (int linhas, int colunas) {
+        public Tabuleiro(int linhas, int colunas) {
             this.linhas = linhas;
             this.colunas = colunas;
             pecas = new Peca[linhas, colunas];
@@ -37,7 +38,7 @@ namespace tabuleiro {
         }
 
         public Peca retirarPeca(Posicao pos) {
-            if (peca(pos)== null) {
+            if (peca(pos) == null) {
                 return null;
             }
             Peca aux = peca(pos);
@@ -46,8 +47,8 @@ namespace tabuleiro {
             return aux;
         }
 
-        public bool posicaoValida (Posicao pos) {
-            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna<0 || pos.coluna>=colunas) {
+        public bool posicaoValida(Posicao pos) {
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas) {
                 return false;
             }
             return true;
@@ -57,6 +58,9 @@ namespace tabuleiro {
             if (!posicaoValida(pos)) {
                 throw new TabuleiroException("Posição inválida!");
             }
+
         }
     }
 }
+
+
